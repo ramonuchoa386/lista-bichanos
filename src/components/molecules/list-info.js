@@ -7,10 +7,10 @@ export default class ListInfo extends React.Component {
 
 		return(
 			<ul>
-				<ListItem ratingType="Affection Level" stars={stars} />
-				<ListItem ratingType="Adaptability" stars={stars} />
-				<ListItem ratingType="Child Friendly" stars={stars} />
-				<ListItem ratingType="Dog Friendly" stars={stars} />
+				<ListItem ratingType="Affection Level" stars={stars} icon='star_border' />
+				<ListItem ratingType="Adaptability" stars={stars}  icon='star_border' />
+				<ListItem ratingType="Child Friendly" stars={stars}  icon='star_border' />
+				<ListItem ratingType="Dog Friendly" stars={stars}  icon='star_border' />
 			</ul>
 		);
 	}

@@ -4,12 +4,12 @@ import Icon from '../atoms/icon.js';
 export default class Rating extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { stars: this.props.stars };
+		this.state = { stars: this.props.stars, icon: this.props.icon };
 	}
 
 	render() {
 		const ratingStars = this.state.stars.map(() =>
-			<Icon icon='star_border' />
+			<Icon icon={this.state.icon} />
 		);
 
 		return(
