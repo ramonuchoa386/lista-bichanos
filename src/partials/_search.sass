@@ -1,0 +1,55 @@
+section.search-box 
+        background-color: white
+        border-left: 6px solid $blue
+        margin: 50px
+        padding: 30px
+        color: $darkGrey
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, .3)
+        & > p 
+                text-align: center
+                color: $lightGrey
+        label[for='search']
+                +flex()
+                font-size: 2rem
+                border-bottom: 4px dotted $grey
+                padding-bottom: 30px
+                margin-bottom: 30px
+                input 
+                        border-radius: 3px
+                        border: 1px solid lightGrey
+                        margin-left: 30px
+                        width: 40%
+                        height: 2.5rem
+                        padding-left: 20px
+        button.load-more 
+                margin: 0 auto
+                display: block
+                border: 1px solid lightgray
+                padding: 10px 35px
+                text-transform: uppercase
+                font-size: 1rem
+                color: black
+                border-radius: 3px
+        article
+                +flex(null, flex-start)
+                margin-top: 30px
+                img.catThumb
+                        min-width: 200px
+                        height: auto
+                div 
+                        margin-left: 30px
+                        ul 
+                                list-style-type: none
+                                margin: 30px 0 50px
+                                li
+                                        +flex(flex-start, center)
+                                        &:not(:last-of-type) 
+                                                margin-bottom: 10px
+                                        p 
+                                                margin-right: 20px
+                                                width: 130px
+                                        span
+                                                i 
+                                                        color: $paleGrey
+                                                        &.starRated
+                                                                color: $starRated
