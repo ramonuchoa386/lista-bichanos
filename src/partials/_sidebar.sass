@@ -1,21 +1,34 @@
 aside 
-        background-color: $blue
-        padding: 10px 20px
-        min-width: 20vw
-        section.logo-wrapper 
-                +flex(space-between, flex-start)
-                border-bottom: 4px dotted $paleBlue
-                padding: 20px 0
-                margin-bottom: 40px
-        nav
-                a
-                        +flex(flex-start, center)
-                        text-decoration: none
-                        color: #abbcd0
-                        font-size: 1.2rem
-                        &:hover 
-                                color: white
-                        &:not(:last-of-type) 
-                                margin-bottom: 20px
-                        i 
-                                margin-right: 10px
+	background-color: $blue
+	padding: 10px 20px
+	section.logo-wrapper 
+		+flex(space-between, flex-start)
+		border-bottom: 4px dotted $paleBlue
+		padding: 20px 0
+		margin-bottom: 40px
+		img
+			+breakpoint("max-width: 520px")
+				display: none
+	nav
+		a
+			+flex(flex-start, center)
+			text-decoration: none
+			color: #abbcd0
+			font-size: 1.2rem
+			&:hover 
+				color: white
+			&:not(:last-of-type) 
+				margin-bottom: 20px
+			i 
+				margin-right: 10px
+			p
+				+breakpoint("max-width: 520px")
+					display: none
+.shrink
+	section.logo-wrapper
+		img
+			display: none
+	nav
+		a
+			p
+				display: none

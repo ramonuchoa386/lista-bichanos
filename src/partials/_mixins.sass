@@ -1,4 +1,8 @@
 =flex($justify: null, $align: null)
-        display: flex
-        justify-content: $justify
-        align-items: $align
+	display: flex
+	justify-content: $justify
+	align-items: $align
+
+=breakpoint($device)
+	@media only screen and ($device)
+		@content

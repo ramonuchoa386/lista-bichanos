@@ -2,15 +2,22 @@ import React from 'react';
 import ListItem from './list-item.js';
 
 export default class ListInfo extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			temperaments: this.props.temperaments
+		}
+	}
 	render() {
-		const stars = [1, 2, 3, 4, 5];
+		const temperamentItems = this.state.temperaments.map((temperament) =>
+			<ListItem ratingType={temperament.ratingType}
+				  stars={temperament.stars}
+				  icon='star_border' />
+		);
 
 		return(
 			<ul>
-				<ListItem ratingType="Affection Level" stars={stars} icon='star_border' />
-				<ListItem ratingType="Adaptability" stars={stars}  icon='star_border' />
-				<ListItem ratingType="Child Friendly" stars={stars}  icon='star_border' />
-				<ListItem ratingType="Dog Friendly" stars={stars}  icon='star_border' />
+				{ temperamentItems }
 			</ul>
 		);
 	}
