@@ -24,6 +24,6 @@ Agora, em seu navegador, insira o endereço `localhost:3000`
 
 ### O CSS foi gerado pelo SASS
 
-Para compilar o CSS você precisa ter o SASS instalado previamente. Depois, insira o comando abaixo para que o SASS "assista" o arquivo fonte e atualize a cada modificação.
+Para compilar o CSS você precisa ter o SASS instalado previamente. Depois, no diretório `src` insira o comando abaixo para que o SASS "assista" o arquivo fonte e atualize a cada modificação.
 
 `sass -w App.sass:App.css`
