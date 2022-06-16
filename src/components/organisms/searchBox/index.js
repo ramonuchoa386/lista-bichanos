@@ -60,7 +60,7 @@ export default class SearchBox extends React.Component {
         <label htmlFor="search">
           Search the breed: <input type="search" id="search" />
         </label>
-        <Text text={this.state.length + lengthText} />
+        <Text>{this.state.length + lengthText}</Text>
         {searchResults}
         <Button btnContent="Load more" className="load-more" />
       </SearchResultsWrapper>

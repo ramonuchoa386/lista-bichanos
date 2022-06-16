@@ -6,14 +6,14 @@ function Navigation() {
     <nav>
       <LinkBtn
         address="/breeds"
-        pageTitle={<Text text="Breeds" />}
+        pageTitle={<Text>Breeds</Text>}
         icon={<Icon icon="pets" />}
         title="Breeds"
       />
 
       <LinkBtn
         address="/feedback"
-        pageTitle={<Text text="Feedback" />}
+        pageTitle={<Text>Feedback</Text>}
         icon={<Icon icon="announcement" />}
         title="Feedback"
       />

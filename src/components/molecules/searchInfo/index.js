@@ -8,7 +8,7 @@ function SearchInfo(props) {
   return (
     <div>
       <BreedName breedName={breedName} />
-      <Text text={breedDescription} />
+      <Text>{breedDescription}</Text>
       <ListInfo temperaments={temperaments} />
     </div>
   );

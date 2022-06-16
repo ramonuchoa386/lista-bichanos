@@ -7,7 +7,7 @@ function ListItem(props) {
 
   return (
     <li>
-      <Text text={ratingType} />
+      <Text>{ratingType}</Text>
       <Rating stars={stars} icon={icon} />
     </li>
   );
