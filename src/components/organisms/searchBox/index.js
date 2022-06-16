@@ -41,8 +41,9 @@ export default class SearchBox extends React.Component {
   }
 
   render() {
-    const searchResults = this.state.results.map((breedData) => (
+    const searchResults = this.state.results.map((breedData, index) => (
       <Result
+        key={breedData.breedName + index}
         imageSrc={breedData.imageSrc}
         alterText={breedData.breedName}
         breedName={breedData.breedName}
