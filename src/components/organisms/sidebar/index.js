@@ -3,14 +3,14 @@ import { LogoWrapper, Navigation } from "../../molecules";
 import { CustomSideBar } from "./styles";
 
 function Sidebar() {
-  const [shrinkSideBar, setShrinkSideBar] = React.useState(true);
+  const [shrinkSideBar, setShrinkSideBar] = React.useState(false);
 
   const toggleSideBar = () => {
     setShrinkSideBar(!shrinkSideBar);
   };
 
   return (
-    <CustomSideBar shrinkSideBar={shrinkSideBar}>
+    <CustomSideBar className={shrinkSideBar && "shrink"}>
       <LogoWrapper icon="chevron_left" toggleSideBar={toggleSideBar} />
       <Navigation />
     </CustomSideBar>

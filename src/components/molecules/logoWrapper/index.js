@@ -8,7 +8,7 @@ function LogoWrapper(props) {
   return (
     <section className="logo-wrapper">
       <Img imageSrc={logo} alterText="Hostgatos" width="250px" height="66px" />
-      <Button btnContent={<Icon icon={icon} />} onClick={toggleSideBar} />
+      <Button btnContent={<Icon icon={icon} />} btnAction={toggleSideBar} />
     </section>
   );
 }
