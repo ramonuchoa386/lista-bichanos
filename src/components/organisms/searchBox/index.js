@@ -3,67 +3,127 @@ import { Button, Text } from "../../atoms";
 import { Result } from "../../molecules";
 import { SearchResultsWrapper } from "./styles";
 
-// const apiUrl = "https://api.thecatapi.com/v1/breeds/search"
+function SearchBox() {
+  const [results, setResult] = React.useState([]);
+  const [options, setOptions] = React.useState([]);
+  const [selectedBreed, setSelectedBreed] = React.useState("none");
 
-export default class SearchBox extends React.Component {
-  constructor(props) {
-    super(props);
+  React.useEffect(() => {
+    fetch("https://api.thecatapi.com/v1/breeds", {
+      method: "GET",
+      headers: new Headers({
+        "x-api-key": "2a69daf0-8250-45b2-a41f-109d65cd74d8",
+      }),
+      mode: "cors",
+      cache: "default",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const rawOptions = [];
 
-    this.state = {
-      length: 1,
-      results: [
+        data.forEach((cat) => {
+          rawOptions.push({ name: cat.name, id: cat.id });
+        });
+
+        setOptions(rawOptions);
+      });
+  }, []);
+
+  React.useEffect(() => {
+    if (selectedBreed != "none") {
+      fetch(
+        `https://api.thecatapi.com/v1/images/search?breed_ids=${selectedBreed}&limit=8`,
         {
-          imageSrc: "https://placekitten.com/200/200",
-          breedName: "Gato",
-          breedDescription:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet consequat ipsum. Vivamus suscipit erat id nisi porta, sed pellentesque nibh faucibus. Pellentesque nec turpis aliquet mauris sagittis pharetra nec sodales orci. Nullam et ante a ligula luctus placerat in in ligula.",
-          temperaments: [
-            {
-              ratingType: "Affection Level",
-              stars: [1, 2, 3, 4, 5],
-            },
-            {
-              ratingType: "Adaptability",
-              stars: [1, 2, 3, 4, 5],
-            },
-            {
-              ratingType: "Child Friendly",
-              stars: [1, 2, 3, 4, 5],
-            },
-            {
-              ratingType: "Dog Friendly",
-              stars: [1, 2, 3, 4, 5],
-            },
-          ],
-        },
-      ],
-    };
-  }
+          method: "GET",
+          headers: new Headers({
+            "x-api-key": "2a69daf0-8250-45b2-a41f-109d65cd74d8",
+          }),
+          mode: "cors",
+          cache: "default",
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          const rawResults = [];
 
-  render() {
-    const searchResults = this.state.results.map((breedData, index) => (
-      <Result
-        key={breedData.breedName + index}
-        imageSrc={breedData.imageSrc}
-        alterText={breedData.breedName}
-        breedName={breedData.breedName}
-        breedDescription={breedData.breedDescription}
-        temperaments={breedData.temperaments}
-      />
-    ));
+          // data.forEach((cat) => {
+          rawResults.push({
+            imageSrc: data[0].url,
+            breedName: data[0].breeds[0].name,
+            breedDescription: data[0].breeds[0].description,
+            temperaments: [
+              {
+                ratingType: "Affection Level",
+                stars: [...Array(data[0].breeds[0].affection_level)],
+              },
+              {
+                ratingType: "Adaptability",
+                stars: [...Array(data[0].breeds[0].adaptability)],
+              },
+              {
+                ratingType: "Child Friendly",
+                stars: [...Array(data[0].breeds[0].child_friendly)],
+              },
+              {
+                ratingType: "Dog Friendly",
+                stars: [...Array(data[0].breeds[0].dog_friendly)],
+              },
+            ],
+          });
+          // });
 
-    const lengthText =
-      this.state.length > 1 ? " results found" : " result found";
+          setResult(rawResults);
+        });
+    }
+  }, [selectedBreed]);
 
-    return (
-      <SearchResultsWrapper>
-        <label htmlFor="search">
-          Search the breed: <input type="search" id="search" />
-        </label>
-        <Text>{this.state.length + lengthText}</Text>
-        {searchResults}
+  const handleSelectChange = (e) => {
+    setSelectedBreed(e.target.value);
+  };
+
+  return (
+    <SearchResultsWrapper>
+      <label htmlFor="search">
+        Select the breed:
+        <select
+          name="breedSelection"
+          onChange={handleSelectChange}
+          defaultValue={selectedBreed}
+        >
+          <option value="none">Select the breed name</option>
+          {options.map((option, index) => {
+            return (
+              <option key={index + option.id} value={option.id}>
+                {option.name}
+              </option>
+            );
+          })}
+        </select>
+      </label>
+      {/* <Text>
+        {results.length > 0 &&
+          results.length +
+            (results.length > 1 ? " results found" : " result found")}
+      </Text> */}
+      {results.length === 0 ? (
+        <p style={{ textAlign: "center" }}>Nenhum selecionado</p>
+      ) : (
+        results.map((breedData, index) => (
+          <Result
+            key={breedData.breedName + index}
+            imageSrc={breedData.imageSrc}
+            alterText={breedData.breedName}
+            breedName={breedData.breedName}
+            breedDescription={breedData.breedDescription}
+            temperaments={breedData.temperaments}
+          />
+        ))
+      )}
+      {/* {results.length > 0 && (
         <Button btnContent="Load more" className="load-more" />
-      </SearchResultsWrapper>
-    );
-  }
+      )} */}
+    </SearchResultsWrapper>
+  );
 }
+
+export default SearchBox;
