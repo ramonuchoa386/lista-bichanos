@@ -11,7 +11,10 @@ function Sidebar() {
 
   return (
     <CustomSideBar className={shrinkSideBar && "shrink"}>
-      <LogoWrapper icon="chevron_left" toggleSideBar={toggleSideBar} />
+      <LogoWrapper
+        icon={!shrinkSideBar ? "chevron_left" : "chevron_right"}
+        toggleSideBar={toggleSideBar}
+      />
       <Navigation />
     </CustomSideBar>
   );
