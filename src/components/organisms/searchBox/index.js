@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, Text } from "../../atoms";
 import { Result } from "../../molecules";
 import { SearchResultsWrapper } from "./styles";
 
