@@ -1,13 +1,12 @@
 import React from "react";
-import { Button, Img, Icon } from "../../atoms";
-import logo from "../../../static/marca-hostgatos.svg";
+import { Button, Icon } from "../../atoms";
 
 function LogoWrapper(props) {
   const { icon, toggleSideBar } = props;
 
   return (
     <section className="logo-wrapper">
-      <Img imageSrc={logo} alterText="Hostgatos" width="250px" height="66px" />
+      <h1>Lista Bichanos</h1>
       <Button btnContent={<Icon icon={icon} />} btnAction={toggleSideBar} />
     </section>
   );
