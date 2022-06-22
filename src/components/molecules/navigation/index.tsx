@@ -1,7 +1,7 @@
 import React from "react";
 import { LinkBtn, Icon, Text } from "../../atoms";
 
-function Navigation() {
+const Navigation: React.FC = () => {
   return (
     <nav>
       <LinkBtn
@@ -19,6 +19,6 @@ function Navigation() {
       />
     </nav>
   );
-}
+};
 
 export default Navigation;

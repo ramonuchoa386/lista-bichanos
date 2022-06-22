@@ -2,7 +2,13 @@ import React from "react";
 import { ListInfo } from "../";
 import { Text, BreedName } from "../../atoms";
 
-function SearchInfo(props) {
+interface ISearchInfo {
+  breedName: string;
+  breedDescription: string;
+  temperaments: Array<any>;
+}
+
+const SearchInfo = (props: ISearchInfo) => {
   const { breedName, breedDescription, temperaments } = props;
 
   return (
@@ -12,6 +18,6 @@ function SearchInfo(props) {
       <ListInfo temperaments={temperaments} />
     </div>
   );
-}
+};
 
 export default SearchInfo;

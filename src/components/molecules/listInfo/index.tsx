@@ -1,7 +1,11 @@
 import React from "react";
 import { ListItem } from "../";
 
-function ListInfo(props) {
+interface IListInfo {
+  temperaments: Array<any>;
+}
+
+function ListInfo(props: IListInfo) {
   const { temperaments } = props;
 
   return (

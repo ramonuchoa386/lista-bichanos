@@ -1,29 +1,64 @@
-## Bem vindos ao desafio do HostGatos
+# Lista Bichanos
 
-Siga as instruções para iniciar o projeto, você deve clonar o repositório e instalar as dependências. Você precisa ter o npm instalado previamente.
+![Interface do Lista Bichanos](https://img.shields.io "Lista Bichanos")
 
-#### Clone o projeto
+> Este projeto detalha de diversas raças de gatos utilizando os dados da API [The Cat Api](https://thecatapi.com/).
 
-No seu terminal, vá até seu diretório de repositórios e insira:
+## Como Utilizar
 
-`git clone https://github.com/ramonuchoa386/desafio-cat-search`
+### 💻 Pré-requisitos
 
-#### Instale as dependências
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-Depois de clonar o repositório, entre no diretório do projeto e insira:
+- Você tem a versão mais recente do `react`
 
-`npm install`
+### 🚀 Instalando Lista Bichanos
 
-#### Inicie a aplicação
+Para instalar o Lista Bichanos, siga estas etapas:
 
-Depois de instalar as dependências do projeto, inicie a aplicação com o seguinte comando:
+Linux e macOS:
 
-`npm start`
+```sh
+npm i
+```
 
-Agora, em seu navegador, insira o endereço `localhost:3000`
+ou:
 
-### O CSS foi gerado pelo SASS
+```sh
+yarn
+```
 
-Para compilar o CSS você precisa ter o SASS instalado previamente. Depois, no diretório `src` insira o comando abaixo para que o SASS "assista" o arquivo fonte e atualize a cada modificação.
+### ☕ Usando Lista Bichanos
 
-`sass -w App.sass:App.css`
+Para usar Lista Bichanos, siga estas etapas:
+
+```sh
+npm start
+```
+
+ou:
+
+```sh
+yarn start
+```
+
+## 🤝 Colaboradores
+
+Agradecemos às seguintes pessoas que contribuíram para este projeto:
+
+| ![Github Avatar do ramonuchoa386](https://avatars.githubusercontent.com/u/17964613?v=4 "ramonuchoa386") |
+| ------------------------------------------------------------------------------------------------------- |
+| ramonuchoa386                                                                                           |
+
+## 📝 Licença
+
+Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
+
+## Ajustes e melhorias
+
+O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+
+- [x] Interface responsiva
+- [x] Select de raças
+- [ ] Campo de busca
+- [ ] Criar filtro de raças

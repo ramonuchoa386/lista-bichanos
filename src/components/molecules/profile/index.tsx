@@ -3,7 +3,7 @@ import { Img, Button, Icon } from "../../atoms";
 import { ProfileWrapper } from "./styles";
 import avatar from "../../../static/avatar.png";
 
-function Profile() {
+const Profile: React.FC = () => {
   return (
     <ProfileWrapper>
       <Img
@@ -13,9 +13,11 @@ function Profile() {
         height="40px"
         className="avatar"
       />
-      <Button btnContent={<Icon icon="expand_more" />} />
+      <Button btnAction={() => window.alert("clicou na botao do perfil")}>
+        <Icon icon="expand_more" />
+      </Button>
     </ProfileWrapper>
   );
-}
+};
 
 export default Profile;

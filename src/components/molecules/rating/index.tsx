@@ -1,13 +1,18 @@
 import React from "react";
 import { Icon } from "../../atoms";
 
-function Rating(props) {
+interface IRating {
+  stars: Array<any>;
+  icon: string;
+}
+
+function Rating(props: IRating) {
   const { stars, icon } = props;
 
   return (
     <span>
       {stars.map((star, index) => (
-        <Icon key={"star-" + index} icon={icon} />
+        <Icon key={`star-${star}-${index}`} icon={icon} />
       ))}
     </span>
   );
