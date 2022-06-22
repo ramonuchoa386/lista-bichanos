@@ -1,22 +1,22 @@
-import React from "react";
-import { Text } from "../../atoms";
-import { Rating } from "../";
+import React from "react"
+import { Text } from "../../atoms"
+import { Rating } from ".."
 
 interface IListItem {
-  stars: string;
-  icon: string;
-  ratingType: string;
+	stars: Array<any>
+	icon: string
+	ratingType: string
 }
 
 function ListItem(props: IListItem) {
-  const { stars, icon, ratingType } = props;
+	const { stars, icon, ratingType } = props
 
-  return (
-    <li>
-      <Text>{ratingType}</Text>
-      <Rating stars={stars} icon={icon} />
-    </li>
-  );
+	return (
+		<li>
+			<Text>{ratingType}</Text>
+			<Rating stars={stars} icon={icon} />
+		</li>
+	)
 }
 
-export default ListItem;
+export default ListItem

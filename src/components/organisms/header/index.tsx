@@ -1,16 +1,20 @@
-import React from "react";
-import { Profile } from "../../molecules";
-import { Header as CustomHeader } from "./styles";
+import React from "react"
+import { Profile } from "../../molecules"
+import { Header as CustomHeader } from "./styles"
 
-function Header(props) {
-  const { pageTitle } = props;
-
-  return (
-    <CustomHeader>
-      <h2>{pageTitle}</h2>
-      <Profile />
-    </CustomHeader>
-  );
+interface IHeader {
+	pageTitle: string
 }
 
-export default Header;
+function Header(props: IHeader) {
+	const { pageTitle } = props
+
+	return (
+		<CustomHeader>
+			<h2>{pageTitle}</h2>
+			<Profile />
+		</CustomHeader>
+	)
+}
+
+export default Header

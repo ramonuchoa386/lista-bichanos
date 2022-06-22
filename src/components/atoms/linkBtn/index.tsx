@@ -1,13 +1,20 @@
-import React from "react";
+import React from "react"
 
-const LinkBtn = (props) => {
-  const { address, title, icon, pageTitle } = props;
+interface ILinkBtn {
+	address: string
+	title: string
+	icon: React.ReactNode
+	pageTitle: React.ReactNode
+}
 
-  return (
-    <a href={address} title={title}>
-      {icon} {pageTitle}
-    </a>
-  );
-};
+function LinkBtn(props: ILinkBtn) {
+	const { address, title, icon, pageTitle } = props
 
-export default LinkBtn;
+	return (
+		<a href={address} title={title}>
+			{icon} {pageTitle}
+		</a>
+	)
+}
+
+export default LinkBtn
