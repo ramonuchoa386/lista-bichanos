@@ -2,7 +2,13 @@ import React from "react";
 import { Text } from "../../atoms";
 import { Rating } from "../";
 
-function ListItem(props) {
+interface IListItem {
+  stars: string;
+  icon: string;
+  ratingType: string;
+}
+
+function ListItem(props: IListItem) {
   const { stars, icon, ratingType } = props;
 
   return (

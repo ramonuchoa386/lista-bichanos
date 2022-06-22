@@ -1,13 +1,20 @@
 import React from "react";
 import { Button, Icon } from "../../atoms";
 
-function LogoWrapper(props) {
+interface ILogoWrapper {
+  icon: string;
+  toggleSideBar: () => void;
+}
+
+function LogoWrapper(props: ILogoWrapper) {
   const { icon, toggleSideBar } = props;
 
   return (
     <section className="logo-wrapper">
       <h1>Lista Bichanos</h1>
-      <Button btnContent={<Icon icon={icon} />} btnAction={toggleSideBar} />
+      <Button btnAction={toggleSideBar}>
+        <Icon icon={icon} />
+      </Button>
     </section>
   );
 }

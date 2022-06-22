@@ -2,7 +2,7 @@ import React from "react";
 import { LogoWrapper, Navigation } from "../../molecules";
 import { CustomSideBar } from "./styles";
 
-function Sidebar() {
+const Sidebar: React.FC = () => {
   const [shrinkSideBar, setShrinkSideBar] = React.useState(false);
 
   const toggleSideBar = () => {
@@ -18,6 +18,6 @@ function Sidebar() {
       <Navigation />
     </CustomSideBar>
   );
-}
+};
 
 export default Sidebar;

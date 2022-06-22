@@ -2,7 +2,7 @@ import React from "react";
 import { Result } from "../../molecules";
 import { SearchResultsWrapper } from "./styles";
 
-function SearchBox() {
+const SearchBox: React.FC = () => {
   const [results, setResult] = React.useState([]);
   const [options, setOptions] = React.useState([]);
   const [selectedBreed, setSelectedBreed] = React.useState("none");
@@ -123,6 +123,6 @@ function SearchBox() {
       )} */}
     </SearchResultsWrapper>
   );
-}
+};
 
 export default SearchBox;

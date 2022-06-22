@@ -1,5 +1,9 @@
 import React from "react";
 
+interface IIcon {
+  icon: string;
+}
+
 const Icon = (props) => {
   const { icon } = props;
 
