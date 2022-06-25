@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Button, Icon } from "../../atoms"
+import FurFriendLogo from "../../../static/furFriend"
 
 interface ILogoWrapper {
 	icon: string
@@ -11,6 +12,7 @@ function LogoWrapper(props: ILogoWrapper) {
 
 	return (
 		<section className="logo-wrapper">
+			<FurFriendLogo />
 			<h1>Lista Bichanos</h1>
 			<Button type="button" onClick={toggleSideBar}>
 				<Icon icon={icon} />
