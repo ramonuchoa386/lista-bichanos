@@ -1,17 +1,8 @@
 import * as React from "react"
-import { Sidebar, Header, SearchBox } from "./components/organisms"
-import { AppWrapper, Main } from "./styles/mainStyles"
+import Routes from "./routes"
 
 function App() {
-	return (
-		<AppWrapper>
-			<Sidebar />
-			<Main>
-				<Header pageTitle="Breeds" />
-				<SearchBox />
-			</Main>
-		</AppWrapper>
-	)
+	return <Routes />
 }
 
 export default App
