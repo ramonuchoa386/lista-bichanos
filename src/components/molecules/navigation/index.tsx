@@ -1,14 +1,15 @@
 import * as React from "react"
-import { Link, Icon, Text } from "../../atoms"
+import { Link } from "react-router-dom"
+import { Icon, Text } from "../../atoms"
 
 function Navigation() {
 	return (
 		<nav>
-			<Link href="/breeds" title="Breeds">
+			<Link to="/">
 				<Icon icon="pets" /> <Text>Breeds</Text>
 			</Link>
 
-			<Link href="/feedback" title="Feedback">
+			<Link to="/feedback">
 				<Icon icon="announcement" /> <Text>Feedback</Text>
 			</Link>
 		</nav>
