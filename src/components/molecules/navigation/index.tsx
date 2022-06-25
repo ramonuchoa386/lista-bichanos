@@ -1,24 +1,18 @@
-import React from "react";
-import { LinkBtn, Icon, Text } from "../../atoms";
+import * as React from "react"
+import { Link, Icon, Text } from "../../atoms"
 
-const Navigation: React.FC = () => {
-  return (
-    <nav>
-      <LinkBtn
-        address="/breeds"
-        pageTitle={<Text>Breeds</Text>}
-        icon={<Icon icon="pets" />}
-        title="Breeds"
-      />
+function Navigation() {
+	return (
+		<nav>
+			<Link href="/breeds" title="Breeds">
+				<Icon icon="pets" /> <Text>Breeds</Text>
+			</Link>
 
-      <LinkBtn
-        address="/feedback"
-        pageTitle={<Text>Feedback</Text>}
-        icon={<Icon icon="announcement" />}
-        title="Feedback"
-      />
-    </nav>
-  );
-};
+			<Link href="/feedback" title="Feedback">
+				<Icon icon="announcement" /> <Text>Feedback</Text>
+			</Link>
+		</nav>
+	)
+}
 
-export default Navigation;
+export default Navigation
