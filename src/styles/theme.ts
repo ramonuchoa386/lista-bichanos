@@ -2,8 +2,13 @@ interface IColors {
 	[key: string]: string
 }
 
-export interface ThemeType {
+interface IFontSizes {
+	[key: string]: string
+}
+
+export interface IThemeType {
 	colors: IColors
+	fontSizes: IFontSizes
 }
 
 const theme = {
@@ -17,6 +22,11 @@ const theme = {
 		lightBlue: "#4480c4",
 		blue: "#2e578b",
 		paleBlue: "#3767a2",
+	},
+	fontSizes: {
+		small: ".625rem",
+		regular: "1rem",
+		big: "1.5rem",
 	},
 }
 
