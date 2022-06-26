@@ -1,10 +1,11 @@
 import * as React from 'react';
+import { ITemperament } from '../../organisms/searchBox';
 import * as S from './styles';
 
 interface ISearchInfo {
 	breedName: string;
 	breedDescription: string;
-	temperaments: Array<any>;
+	temperaments: Array<ITemperament>;
 }
 
 function SearchInfo(props: ISearchInfo) {

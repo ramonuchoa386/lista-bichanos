@@ -6,7 +6,7 @@ interface ISelectTypes {
 	id: string;
 }
 
-interface ITemperaments {
+export interface ITemperament {
 	ratingType: string;
 	stars: Array<string>;
 }
@@ -15,7 +15,7 @@ interface IResult {
 	imageSrc: string;
 	breedName: string;
 	breedDescription: string;
-	temperaments: Array<ITemperaments>;
+	temperaments: Array<ITemperament>;
 }
 
 function SearchBox() {
