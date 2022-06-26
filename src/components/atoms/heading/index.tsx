@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import * as React from 'react';
 import * as StyledHeadings from './styles';
 
@@ -11,7 +13,7 @@ function Heading(props: IHeading) {
 
 	const Component = StyledHeadings[type];
 
-	return <Component>{children}</Component>;
+	return <Component {...props}>{children}</Component>;
 }
 
 export default Heading;
