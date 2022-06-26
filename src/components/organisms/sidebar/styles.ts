@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-import {
-	LogoWrapper as LogoWrapperMol,
-	Navigation as NavigationMol,
-} from '../../molecules';
+import { Wrapper, Button, Icon } from '../../atoms';
+import { Navigation as NavigationMol } from '../../molecules';
 
 export const CustomSideBar = styled.aside`
 	background-color: ${(props) => props.theme.colors.blue};
@@ -25,5 +23,17 @@ export const CustomSideBar = styled.aside`
 	}
 `;
 
-export const LogoWrapper = styled(LogoWrapperMol)``;
 export const Navigation = styled(NavigationMol)``;
+
+export const LogoWrapper = styled(Wrapper)`
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	border-bottom: 4px dotted ${(props) => props.theme.colors.paleBlue};
+	padding: 20px 0;
+	margin-bottom: 40px;
+`;
+
+export const OpenProfileBtn = styled(Button)``;
+export const OpenProfileBtnIcon = styled(Icon)``;
+export const LogoName = styled.h1``;
