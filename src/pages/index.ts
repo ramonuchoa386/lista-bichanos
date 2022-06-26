@@ -1,4 +1,4 @@
-import FurListPage from "./furList"
-import FeedbackPage from "./feedback"
+import FurListPage from './furList';
+import FeedbackPage from './feedback';
 
-export { FurListPage, FeedbackPage }
+export { FurListPage, FeedbackPage };

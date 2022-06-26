@@ -1,5 +1,5 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
-const Link = styled.a``
+const Link = styled.a``;
 
-export default Link
+export default Link;

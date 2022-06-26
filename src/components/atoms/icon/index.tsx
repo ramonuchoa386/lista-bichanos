@@ -1,13 +1,13 @@
-import * as React from "react"
+import * as React from 'react';
 
 interface IIcon {
-	icon: string
+	icon: string;
 }
 
 function Icon(props: IIcon) {
-	const { icon } = props
+	const { icon } = props;
 
-	return <i className="material-icons">{icon}</i>
+	return <i className="material-icons">{icon}</i>;
 }
 
-export default Icon
+export default Icon;

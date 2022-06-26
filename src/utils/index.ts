@@ -1,3 +1,3 @@
-import getBreed, { getBreedImageById } from "./fetchApi";
+import getBreed, { getBreedImageById } from './fetchApi';
 
 export { getBreed, getBreedImageById };

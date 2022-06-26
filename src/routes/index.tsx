@@ -1,6 +1,6 @@
-import * as React from "react"
-import { BrowserRouter, Routes as R, Route } from "react-router-dom"
-import * as Page from "../pages"
+import * as React from 'react';
+import { BrowserRouter, Routes as R, Route } from 'react-router-dom';
+import * as Page from '../pages';
 
 function Routes() {
 	return (
@@ -10,7 +10,7 @@ function Routes() {
 				<Route path="/feedback" element={<Page.FeedbackPage />} />
 			</R>
 		</BrowserRouter>
-	)
+	);
 }
 
-export default Routes
+export default Routes;

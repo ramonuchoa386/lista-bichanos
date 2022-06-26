@@ -1,6 +1,6 @@
-import * as React from "react"
-import styled from "styled-components"
+import * as React from 'react';
+import styled from 'styled-components';
 
-const Img = styled.img<React.ImgHTMLAttributes<HTMLImageElement>>``
+const Img = styled.img<React.ImgHTMLAttributes<HTMLImageElement>>``;
 
-export default Img
+export default Img;

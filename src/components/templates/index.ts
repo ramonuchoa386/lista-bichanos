@@ -1,3 +1,3 @@
-import DefaultTemplate from "./defaultPage"
+import DefaultTemplate from './defaultPage';
 
-export { DefaultTemplate }
+export { DefaultTemplate };
