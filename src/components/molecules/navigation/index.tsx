@@ -1,19 +1,18 @@
-import * as React from "react"
-import { Link } from "react-router-dom"
-import { Icon, Text } from "../../atoms"
+import * as React from 'react';
+import * as S from './styles';
 
 function Navigation() {
 	return (
-		<nav>
-			<Link to="/">
-				<Icon icon="pets" /> <Text>Breeds</Text>
-			</Link>
+		<S.Navigation>
+			<S.Link to="/">
+				<S.LinkIcon icon="pets" /> <S.LinkText>Breeds</S.LinkText>
+			</S.Link>
 
-			<Link to="/feedback">
-				<Icon icon="announcement" /> <Text>Feedback</Text>
-			</Link>
-		</nav>
-	)
+			<S.Link to="/feedback">
+				<S.LinkIcon icon="announcement" /> <S.LinkText>Feedback</S.LinkText>
+			</S.Link>
+		</S.Navigation>
+	);
 }
 
-export default Navigation
+export default Navigation;

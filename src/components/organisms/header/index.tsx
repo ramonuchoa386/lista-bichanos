@@ -1,20 +1,19 @@
-import * as React from "react"
-import { Profile } from "../../molecules"
-import { Header as CustomHeader } from "./styles"
+import * as React from 'react';
+import * as S from './styles';
 
 interface IHeader {
-	pageTitle: string
+	pageTitle: string;
 }
 
 function Header(props: IHeader) {
-	const { pageTitle } = props
+	const { pageTitle } = props;
 
 	return (
-		<CustomHeader>
-			<h2>{pageTitle}</h2>
-			<Profile />
-		</CustomHeader>
-	)
+		<S.Header>
+			<S.Heading type="H2">{pageTitle}</S.Heading>
+			<S.Profile />
+		</S.Header>
+	);
 }
 
-export default Header
+export default Header;

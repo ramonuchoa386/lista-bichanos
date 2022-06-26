@@ -1,23 +1,22 @@
-import * as React from "react"
-import { LogoWrapper, Navigation } from "../../molecules"
-import { CustomSideBar } from "./styles"
+import * as React from 'react';
+import * as S from './styles';
 
 function Sidebar() {
-	const [shrinkSideBar, setShrinkSideBar] = React.useState(false)
+	const [shrinkSideBar, setShrinkSideBar] = React.useState(false);
 
 	const toggleSideBar = () => {
-		setShrinkSideBar(!shrinkSideBar)
-	}
+		setShrinkSideBar(!shrinkSideBar);
+	};
 
 	return (
-		<CustomSideBar className={shrinkSideBar ? "shrink" : ""}>
-			<LogoWrapper
-				icon={!shrinkSideBar ? "chevron_left" : "chevron_right"}
+		<S.CustomSideBar className={shrinkSideBar ? 'shrink' : ''}>
+			<S.LogoWrapper
+				icon={!shrinkSideBar ? 'chevron_left' : 'chevron_right'}
 				toggleSideBar={toggleSideBar}
 			/>
-			<Navigation />
-		</CustomSideBar>
-	)
+			<S.Navigation />
+		</S.CustomSideBar>
+	);
 }
 
-export default Sidebar
+export default Sidebar;

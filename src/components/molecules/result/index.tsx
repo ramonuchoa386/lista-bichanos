@@ -1,35 +1,34 @@
-import * as React from "react"
-import { Img } from "../../atoms"
-import { SearchInfo } from ".."
+import * as React from 'react';
+import { SearchInfo } from '..';
+import { ResultsWrapper, ResultThumbnail } from './styles';
 
 interface IResult {
-	imageSrc: string
-	alterText: string
-	breedName: string
-	breedDescription: string
-	temperaments: Array<any>
+	imageSrc: string;
+	alterText: string;
+	breedName: string;
+	breedDescription: string;
+	temperaments: Array<any>;
 }
 
 function Result(props: IResult) {
 	const { imageSrc, alterText, breedName, breedDescription, temperaments } =
-		props
+		props;
 
 	return (
-		<article>
-			<Img
+		<ResultsWrapper>
+			<ResultThumbnail
 				src={imageSrc}
 				width="200px"
 				height="200px"
 				alt={alterText}
-				className="catThumb"
 			/>
 			<SearchInfo
 				breedName={breedName}
 				temperaments={temperaments}
 				breedDescription={breedDescription}
 			/>
-		</article>
-	)
+		</ResultsWrapper>
+	);
 }
 
-export default Result
+export default Result;
