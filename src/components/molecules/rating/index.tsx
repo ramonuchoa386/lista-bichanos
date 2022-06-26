@@ -2,7 +2,7 @@ import * as React from 'react';
 import { RatingWrapper, RatingIcon } from './styles';
 
 interface IRating {
-	stars: Array<any>;
+	stars: Array<unknown>;
 	icon: string;
 }
 
