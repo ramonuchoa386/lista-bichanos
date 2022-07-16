@@ -26,16 +26,13 @@ export const SearchResultsWrapper = styled.section`
 
 export const SelectLabel = styled.label`
 	display: flex;
-	font-size: 2rem;
 	border-bottom: 4px dotted ${(props) => props.theme.colors.grey};
 	padding-bottom: 30px;
 	margin-bottom: 30px;
+`;
 
-	@media only screen and (max-width: 520px) {
-		flex-direction: column;
-		align-items: center;
-		font-size: 1.6rem;
-	}
+export const SelectBox = styled.select`
+	margin-left: 8px;
 `;
 
 export const SearchInput = styled.input`

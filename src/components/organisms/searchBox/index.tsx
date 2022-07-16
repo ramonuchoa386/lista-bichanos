@@ -98,13 +98,13 @@ function SearchBox() {
 
 	return (
 		<S.SearchResultsWrapper>
-			<S.SelectLabel htmlFor="search">
-				Select the breed:
-				<select
-					name="breedSelection"
+			<S.SelectLabel htmlFor="selectBichano">
+				Selecione o bichano:
+				<S.SelectBox
+					name="selectBichano"
 					onChange={handleSelectChange}
 					defaultValue={selectedBreed}>
-					<option value="none">Select the breed name</option>
+					<option value="none">Escolha o nome</option>
 					{options.map((option: { id: string; name: string }) => {
 						return (
 							<option key={`option-${option.id}`} value={option.id}>
@@ -112,7 +112,7 @@ function SearchBox() {
 							</option>
 						);
 					})}
-				</select>
+				</S.SelectBox>
 			</S.SelectLabel>
 			{/* <Text>
         {results.length > 0 &&
