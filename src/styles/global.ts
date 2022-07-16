@@ -7,10 +7,6 @@ const GlobalStyles = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
         box-sizing: border-box;
     }
-
-    i {
-        font-family: 'Material Icons';
-    }
 `;
 
 export default GlobalStyles;
