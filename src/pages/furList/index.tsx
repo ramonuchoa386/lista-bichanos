@@ -4,7 +4,7 @@ import { DefaultTemplate } from '../../components/templates';
 
 function FurListPage() {
 	return (
-		<DefaultTemplate title="FurList Page">
+		<DefaultTemplate title="Lista de Bichanos">
 			<SearchBox />
 		</DefaultTemplate>
 	);

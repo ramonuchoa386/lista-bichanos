@@ -4,7 +4,7 @@ import { DefaultTemplate } from '../../components/templates';
 
 function FeedbackPage() {
 	return (
-		<DefaultTemplate title="Feedback Page">
+		<DefaultTemplate title="Dê seu Feedback">
 			<Heading type="H1">Feedback</Heading>
 		</DefaultTemplate>
 	);
