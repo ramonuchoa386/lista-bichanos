@@ -1,6 +1,12 @@
 import * as React from 'react';
+import {
+	MdPets,
+	MdFeedback,
+	MdChevronLeft,
+	MdChevronRight,
+} from 'react-icons/md';
+import { AnimatedLogo } from '../../atoms';
 import * as S from './styles';
-import FurFriendLogo from '../../../static/furFriend';
 
 function Sidebar() {
 	const [shrinkSideBar, setShrinkSideBar] = React.useState(false);
@@ -12,19 +18,21 @@ function Sidebar() {
 	return (
 		<S.CustomSideBar className={shrinkSideBar ? 'shrink' : ''}>
 			<S.LogoWrapper>
-				<FurFriendLogo />
+				<AnimatedLogo />
 				<S.LogoName>Lista Bichanos</S.LogoName>
-				<S.OpenProfileBtn type="button" onClick={toggleSideBar}>
-					<S.OpenProfileBtnIcon
-						icon={!shrinkSideBar ? 'chevron_left' : 'chevron_right'}
-					/>
-				</S.OpenProfileBtn>
 			</S.LogoWrapper>
-			{/* <S.LogoWrapper
-				icon={!shrinkSideBar ? 'chevron_left' : 'chevron_right'}
-				toggleSideBar={toggleSideBar}
-			/> */}
-			<S.Navigation />
+			<S.Navigation>
+				<S.Link to="/">
+					<MdPets /> <S.LinkText>Bichanos</S.LinkText>
+				</S.Link>
+
+				<S.Link to="/feedback">
+					<MdFeedback /> <S.LinkText>Feedback</S.LinkText>
+				</S.Link>
+			</S.Navigation>
+			<S.ToggleSideBarBtn type="button" onClick={toggleSideBar}>
+				{!shrinkSideBar ? <MdChevronLeft /> : <MdChevronRight />}
+			</S.ToggleSideBarBtn>
 		</S.CustomSideBar>
 	);
 }
