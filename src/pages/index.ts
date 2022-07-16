@@ -1,4 +1,6 @@
 import FurListPage from './furList';
 import FeedbackPage from './feedback';
 
-export { FurListPage, FeedbackPage };
+const Pages = { FurListPage, FeedbackPage };
+
+export default Pages;
