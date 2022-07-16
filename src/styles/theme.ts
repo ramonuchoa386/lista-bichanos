@@ -10,6 +10,8 @@ export interface IThemeType {
 
 const theme = {
 	colors: {
+		white: '#fff',
+		offWhite: '#abbcd0',
 		lightGrey: '#c2c7ca',
 		grey: '#ebeff3',
 		paleGrey: '#abb3b6',
