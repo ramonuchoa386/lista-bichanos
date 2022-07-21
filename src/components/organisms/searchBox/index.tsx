@@ -22,6 +22,7 @@ function SearchBox() {
 	const [results, setResult] = React.useState<IResult[]>([]);
 	const [options, setOptions] = React.useState<ISelectTypes[]>([]);
 	const [selectedBreed, setSelectedBreed] = React.useState('none');
+	const [loaderState, setLoaderState] = React.useState(false);
 
 	React.useEffect(() => {
 		fetch('https://api.thecatapi.com/v1/breeds', {
@@ -44,8 +45,11 @@ function SearchBox() {
 			});
 	}, []);
 
-	React.useEffect(() => {
+	React.useLayoutEffect(() => {
 		if (selectedBreed !== 'none') {
+			setResult([]);
+			setLoaderState(true);
+
 			fetch(
 				`https://api.thecatapi.com/v1/images/search?breed_ids=${selectedBreed}&limit=8`,
 				{
@@ -88,6 +92,7 @@ function SearchBox() {
 					// });
 
 					setResult(rawResults);
+					setLoaderState(false);
 				});
 		}
 	}, [selectedBreed]);
@@ -119,30 +124,32 @@ function SearchBox() {
           results.length +
             (results.length > 1 ? " results found" : " result found")}
       </Text> */}
-			{results.length === 0 ? (
+
+			{results.length === 0 && loaderState === false && (
 				<p style={{ textAlign: 'center' }}>Nenhum selecionado</p>
-			) : (
-				results.map(
-					(breedData: {
-						breedName: string;
-						imageSrc: string;
-						breedDescription: string;
-						temperaments: Array<any>;
-					}) => (
-						<S.Result
-							key={`breed-${breedData.breedName}`}
-							imageSrc={breedData.imageSrc}
-							alterText={breedData.breedName}
-							breedName={breedData.breedName}
-							breedDescription={breedData.breedDescription}
-							temperaments={breedData.temperaments}
-						/>
-					),
-				)
+			)}
+
+			{results.map(
+				(breedData: {
+					breedName: string;
+					imageSrc: string;
+					breedDescription: string;
+					temperaments: Array<any>;
+				}) => (
+					<S.Result
+						key={`breed-${breedData.breedName}`}
+						imageSrc={breedData.imageSrc}
+						alterText={breedData.breedName}
+						breedName={breedData.breedName}
+						breedDescription={breedData.breedDescription}
+						temperaments={breedData.temperaments}
+					/>
+				),
 			)}
 			{/* {results.length > 0 && (
         <S.LoadMoreButton>Load more</S.LoadMoreButton>
       )} */}
+			<S.Loader showLoader={loaderState} />
 		</S.SearchResultsWrapper>
 	);
 }
