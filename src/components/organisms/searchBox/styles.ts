@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { Button } from '../../atoms';
 import { Result as ResultMol } from '../../molecules';
 
@@ -22,17 +22,6 @@ export const SearchResultsWrapper = styled.section`
 		text-align: center;
 		color: ${(props) => props.theme.colors.lightGrey};
 	}
-`;
-
-export const SelectLabel = styled.label`
-	display: flex;
-	border-bottom: 4px dotted ${(props) => props.theme.colors.grey};
-	padding-bottom: 30px;
-	margin-bottom: 30px;
-`;
-
-export const SelectBox = styled.select`
-	margin-left: 8px;
 `;
 
 export const SearchInput = styled.input`
@@ -59,24 +48,4 @@ export const LoadMoreBtn = styled(Button)`
 	font-size: 1rem;
 	color: black;
 	border-radius: 3px;
-`;
-
-const rotate = keyframes`
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-`;
-
-export const Loader = styled.div<{ showLoader: boolean }>`
-	width: 30px;
-	height: 30px;
-	border-radius: 30px;
-	border: 2px solid black;
-	border-bottom-color: transparent;
-	margin: 0 auto;
-	animation: 1s ${rotate} cubic-bezier(0.4, 0, 0.2, 1) infinite;
-	display: ${(props) => (props.showLoader ? 'block' : 'none')};
 `;
