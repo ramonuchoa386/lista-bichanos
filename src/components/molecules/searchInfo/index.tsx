@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { ITemperament } from '../../organisms/searchBox';
 import * as S from './styles';
 
 interface ISearchInfo {
 	breedName: string;
 	breedDescription: string;
-	temperaments: Array<ITemperament>;
+	temperaments: Array<{
+		ratingType: string;
+		stars: number;
+	}>;
 }
 
 function SearchInfo(props: ISearchInfo) {
@@ -20,7 +22,7 @@ function SearchInfo(props: ISearchInfo) {
 				{temperaments.map((temperament) => (
 					<S.RatingsListItem key={`temperament-${Math.random()}`}>
 						<S.RatingName>{temperament.ratingType}</S.RatingName>
-						<S.Rating stars={temperament.stars} icon="star_border" />
+						<S.Rating stars={temperament.stars} />
 					</S.RatingsListItem>
 				))}
 			</S.RatingsList>
