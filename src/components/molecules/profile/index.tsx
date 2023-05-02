@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Icon } from '../../atoms';
+import { MdExpandMore } from 'react-icons/md';
 import { ProfileWrapper, ProfileButton, Avatar } from './styles';
 import avatarImg from '../../../static/avatar.png';
 
@@ -10,7 +10,7 @@ function Profile() {
 			<ProfileButton
 				type="button"
 				onClick={() => window.alert('clicou na botao do perfil')}>
-				<Icon icon="expand_more" />
+				<MdExpandMore />
 			</ProfileButton>
 		</ProfileWrapper>
 	);
