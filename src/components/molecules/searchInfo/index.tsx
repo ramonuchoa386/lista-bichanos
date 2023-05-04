@@ -2,11 +2,11 @@ import * as React from 'react';
 import * as S from './styles';
 
 interface ISearchInfo {
-	breedName: string;
-	breedDescription: string;
+	breedName?: string;
+	breedDescription?: string;
 	temperaments: Array<{
-		ratingType: string;
-		stars: number;
+		ratingType?: string;
+		stars?: number;
 	}>;
 }
 

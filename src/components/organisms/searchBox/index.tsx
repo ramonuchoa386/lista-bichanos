@@ -17,7 +17,7 @@ function SearchBox() {
 
 			{!breedId && <p style={{ textAlign: 'center' }}>Nenhum selecionado</p>}
 
-			{breedId && <S.Result breedId={breedId} />}
+			{breedId && <S.Result />}
 			{/* {results.length > 0 && (
         <S.LoadMoreButton>Load more</S.LoadMoreButton>
       )} */}

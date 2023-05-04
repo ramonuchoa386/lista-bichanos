@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Wrapper, Img } from '../../atoms';
+import { Wrapper } from '../../atoms';
 
 export const ResultsWrapper = styled(Wrapper)`
 	display: flex;
@@ -12,7 +12,7 @@ export const ResultsWrapper = styled(Wrapper)`
 	}
 `;
 
-export const ResultThumbnail = styled(Img)`
+export const ResultThumbnail = styled.img`
 	min-width: 200px;
 	height: auto;
 `;

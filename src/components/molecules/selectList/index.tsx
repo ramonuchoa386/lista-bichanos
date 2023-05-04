@@ -5,13 +5,17 @@ import { ISelectOptions } from '../../../utils/interfaces/custom.interfaces';
 import BreedIdContext from '../../../context/breedId';
 
 const SelectList = () => {
-	const { setId } = useContext(BreedIdContext);
+	const { setId, breedId } = useContext(BreedIdContext);
 	const { loading, data, error } = useFetchBreeds();
 	const [options, setOptions] = useState<ISelectOptions[]>([]);
-	const [selected, setSelected] = useState<string>('');
 
 	useEffect(() => {
-		if (!loading && data !== undefined && error === undefined) {
+		if (
+			!loading &&
+			data !== undefined &&
+			error === undefined &&
+			Array.isArray(data)
+		) {
 			data.forEach((item) => {
 				setOptions((currentList: ISelectOptions[]) => [
 					...currentList,
@@ -21,20 +25,13 @@ const SelectList = () => {
 		}
 	}, [loading, data, error]);
 
-	const selectHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-		const id = e.currentTarget.value;
-
-		setId(id);
-		setSelected(id);
-	};
-
 	return (
 		<S.SelectLabel htmlFor="selectBichano">
 			Selecione o bichano:
 			<S.SelectBox
 				name="selectBichano"
-				onChange={selectHandler}
-				value={selected}>
+				onChange={(e) => setId(e.currentTarget.value)}
+				value={breedId || ''}>
 				<option value="">Escolha o nome</option>
 				{options.map((option) => {
 					return (

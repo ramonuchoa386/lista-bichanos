@@ -3,7 +3,7 @@ import { MdStarBorder, MdStar } from 'react-icons/md';
 import { RatingWrapper } from './styles';
 
 export interface IRating {
-	stars: number;
+	stars?: number;
 }
 
 const Rating: FunctionComponent<IRating> = (props) => {
