@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import config from '../../utils/config';
-import { IBreed } from '../../utils/interfaces/api-response.interfaces';
+import { IImageResponse } from '../../utils/interfaces/api-response.interfaces';
 
-const useFetchBreedDetails = (id: string) => {
-	const { API_KEY, GET_BREEDS } = config;
-	const [loading, setLoading] = useState<boolean>(false);
-	const [data, setData] = useState<IBreed>();
+const useFetchImage = (id?: string) => {
+	const { API_KEY, IMAGES_CONTEXT } = config;
+	const [loading, setLoading] = useState<boolean>(true);
+	const [data, setData] = useState<IImageResponse>();
 	const [error, setError] = useState<string>();
 
 	useEffect(() => {
 		setLoading(true);
 
-		fetch(`${GET_BREEDS}/${id}`, {
+		fetch(`${IMAGES_CONTEXT}/${id || 'search'}`, {
 			method: 'GET',
 			headers: new Headers({
 				'x-api-key': API_KEY,
@@ -20,7 +20,7 @@ const useFetchBreedDetails = (id: string) => {
 			cache: 'default',
 		})
 			.then((res) => res.json())
-			.then((res: IBreed) => {
+			.then((res: IImageResponse) => {
 				setData(res);
 			})
 			.catch((err) => setError(err))
@@ -30,4 +30,4 @@ const useFetchBreedDetails = (id: string) => {
 	return { loading, data, error };
 };
 
-export default useFetchBreedDetails;
+export default useFetchImage;
