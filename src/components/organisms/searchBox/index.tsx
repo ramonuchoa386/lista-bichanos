@@ -5,6 +5,7 @@ import { SearchResultsWrapper } from "./styles"
 interface ISelectTypes {
 	name: string
 	id: string
+	color?: string
 }
 
 interface ITemperaments {
@@ -117,7 +118,7 @@ function SearchBox() {
 					<option value="none">Select the breed name</option>
 					{options.map(
 						(
-							option: { id: string; name: string },
+							option: { id: string; name: string; color?: string },
 							index: number
 						) => {
 							return (
