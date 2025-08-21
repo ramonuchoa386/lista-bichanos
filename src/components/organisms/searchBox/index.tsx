@@ -5,6 +5,7 @@ import { SearchResultsWrapper } from "./styles"
 interface ISelectTypes {
 	name: string
 	id: string
+	color?: string
 }
 
 interface ITemperaments {
