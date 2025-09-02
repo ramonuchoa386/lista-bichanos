@@ -9,7 +9,7 @@ interface ISelectTypes {
 
 interface ITemperaments {
 	ratingType: string
-	stars: Array<string>
+	stars: Array<number>
 }
 
 interface IResult {
@@ -72,25 +72,25 @@ function SearchBox() {
 								ratingType: "Affection Level",
 								stars: [
 									...Array(data[0].breeds[0].affection_level),
-								],
+								].map((_, i) => i),
 							},
 							{
 								ratingType: "Adaptability",
 								stars: [
 									...Array(data[0].breeds[0].adaptability),
-								],
+								].map((_, i) => i),
 							},
 							{
 								ratingType: "Child Friendly",
 								stars: [
 									...Array(data[0].breeds[0].child_friendly),
-								],
+								].map((_, i) => i),
 							},
 							{
 								ratingType: "Dog Friendly",
 								stars: [
 									...Array(data[0].breeds[0].dog_friendly),
-								],
+								].map((_, i) => i),
 							},
 						],
 					})
