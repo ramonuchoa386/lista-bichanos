@@ -9,7 +9,7 @@ interface ISelectTypes {
 
 interface ITemperaments {
 	ratingType: string
-	stars: Array<string>
+	stars: Array<any> // Changed type to any, as it's an array of undefined
 }
 
 interface IResult {
@@ -17,6 +17,21 @@ interface IResult {
 	breedName: string
 	breedDescription: string
 	temperaments: Array<ITemperaments>
+}
+
+interface CatBreed {
+	id: string
+	name: string
+	description: string
+	affection_level: number
+	adaptability: number
+	child_friendly: number
+	dog_friendly: number
+}
+
+interface CatImage {
+	url: string
+	breeds: CatBreed[]
 }
 
 function SearchBox() {
@@ -34,7 +49,7 @@ function SearchBox() {
 			cache: "default",
 		})
 			.then((res) => res.json())
-			.then((data: Array<any>) => {
+			.then((data: CatBreed[]) => {
 				const rawOptions: Array<ISelectTypes> = []
 
 				data.forEach((cat) => {
@@ -59,45 +74,48 @@ function SearchBox() {
 				}
 			)
 				.then((res) => res.json())
-				.then((data: Array<any>) => {
-					const rawResults: Array<IResult> = []
+				.then((data: CatImage[]) => {
+					if (data.length > 0) {
+						const cat = data[0];
+						const breed = cat.breeds[0];
 
-					// data.forEach((cat) => {
-					rawResults.push({
-						imageSrc: data[0].url,
-						breedName: data[0].breeds[0].name,
-						breedDescription: data[0].breeds[0].description,
-						temperaments: [
+						const rawResults: IResult[] = [
 							{
-								ratingType: "Affection Level",
-								stars: [
-									...Array(data[0].breeds[0].affection_level),
+								imageSrc: cat.url,
+								breedName: breed.name,
+								breedDescription: breed.description,
+								temperaments: [
+									{
+										ratingType: "Affection Level",
+										stars: [...Array(breed.affection_level)],
+									},
+									{
+										ratingType: "Adaptability",
+										stars: [...Array(breed.adaptability)],
+									},
+									{
+										ratingType: "Child Friendly",
+										stars: [...Array(breed.child_friendly)],
+									},
+									{
+										ratingType: "Dog Friendly",
+										stars: [...Array(breed.dog_friendly)],
+									},
 								],
 							},
-							{
-								ratingType: "Adaptability",
-								stars: [
-									...Array(data[0].breeds[0].adaptability),
-								],
-							},
-							{
-								ratingType: "Child Friendly",
-								stars: [
-									...Array(data[0].breeds[0].child_friendly),
-								],
-							},
-							{
-								ratingType: "Dog Friendly",
-								stars: [
-									...Array(data[0].breeds[0].dog_friendly),
-								],
-							},
-						],
-					})
-					// });
+						];
 
-					setResult(rawResults)
+						setResult(rawResults);
+					} else {
+						setResult([]); // Clear results if no data is returned
+					}
 				})
+				.catch(error => {
+					console.error("Error fetching cat images:", error);
+					setResult([]); // Clear results in case of error
+				});
+		} else {
+			setResult([]); // Clear results if selectedBreed is "none"
 		}
 	}, [selectedBreed])
 
@@ -132,11 +150,6 @@ function SearchBox() {
 					)}
 				</select>
 			</label>
-			{/* <Text>
-        {results.length > 0 &&
-          results.length +
-            (results.length > 1 ? " results found" : " result found")}
-      </Text> */}
 			{results.length === 0 ? (
 				<p style={{ textAlign: "center" }}>Nenhum selecionado</p>
 			) : (
@@ -161,9 +174,6 @@ function SearchBox() {
 					)
 				)
 			)}
-			{/* {results.length > 0 && (
-        <Button btnContent="Load more" className="load-more" />
-      )} */}
 		</SearchResultsWrapper>
 	)
 }
