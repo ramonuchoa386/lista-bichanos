@@ -9,7 +9,7 @@ interface ISelectTypes {
 
 interface ITemperaments {
 	ratingType: string
-	stars: Array<string>
+	stars: Array<number>
 }
 
 interface IResult {
@@ -62,39 +62,31 @@ function SearchBox() {
 				.then((data: Array<any>) => {
 					const rawResults: Array<IResult> = []
 
-					// data.forEach((cat) => {
-					rawResults.push({
-						imageSrc: data[0].url,
-						breedName: data[0].breeds[0].name,
-						breedDescription: data[0].breeds[0].description,
-						temperaments: [
-							{
-								ratingType: "Affection Level",
-								stars: [
-									...Array(data[0].breeds[0].affection_level),
-								],
-							},
-							{
-								ratingType: "Adaptability",
-								stars: [
-									...Array(data[0].breeds[0].adaptability),
-								],
-							},
-							{
-								ratingType: "Child Friendly",
-								stars: [
-									...Array(data[0].breeds[0].child_friendly),
-								],
-							},
-							{
-								ratingType: "Dog Friendly",
-								stars: [
-									...Array(data[0].breeds[0].dog_friendly),
-								],
-							},
-						],
-					})
-					// });
+					if (data.length > 0 && data[0].breeds && data[0].breeds.length > 0) {
+						rawResults.push({
+							imageSrc: data[0].url,
+							breedName: data[0].breeds[0].name,
+							breedDescription: data[0].breeds[0].description,
+							temperaments: [
+								{
+									ratingType: "Affection Level",
+									stars: Array(data[0].breeds[0].affection_level).fill(0),
+								},
+								{
+									ratingType: "Adaptability",
+									stars: Array(data[0].breeds[0].adaptability).fill(0),
+								},
+								{
+									ratingType: "Child Friendly",
+									stars: Array(data[0].breeds[0].child_friendly).fill(0),
+								},
+								{
+									ratingType: "Dog Friendly",
+									stars: Array(data[0].breeds[0].dog_friendly).fill(0),
+								},
+							],
+						});
+					}
 
 					setResult(rawResults)
 				})
@@ -132,11 +124,6 @@ function SearchBox() {
 					)}
 				</select>
 			</label>
-			{/* <Text>
-        {results.length > 0 &&
-          results.length +
-            (results.length > 1 ? " results found" : " result found")}
-      </Text> */}
 			{results.length === 0 ? (
 				<p style={{ textAlign: "center" }}>Nenhum selecionado</p>
 			) : (
@@ -146,7 +133,7 @@ function SearchBox() {
 							breedName: string
 							imageSrc: string
 							breedDescription: string
-							temperaments: Array<any>
+							temperaments: Array<ITemperaments>
 						},
 						index: number
 					) => (
@@ -161,9 +148,6 @@ function SearchBox() {
 					)
 				)
 			)}
-			{/* {results.length > 0 && (
-        <Button btnContent="Load more" className="load-more" />
-      )} */}
 		</SearchResultsWrapper>
 	)
 }
