@@ -1,5 +1,5 @@
-import Header from "./header";
-import SearchBox from "./searchBox";
-import Sidebar from "./sidebar";
+import Header from "./header"
+import SearchBox from "./searchBox"
+import Sidebar from "./sidebar"
 
-export { Header, SearchBox, Sidebar };
+export { Header, SearchBox, Sidebar }

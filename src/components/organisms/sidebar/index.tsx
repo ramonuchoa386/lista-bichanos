@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 import { LogoWrapper, Navigation } from "../../molecules"
 import { CustomSideBar } from "./styles"
 

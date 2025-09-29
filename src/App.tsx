@@ -1,15 +1,8 @@
-import React from "react";
-import { Sidebar, Header, SearchBox } from "./components/organisms";
-import { AppWrapper, Main } from "./styles/mainStyles";
+import * as React from "react"
+import Routes from "./routes"
 
-const App: React.FC = () => (
-  <AppWrapper>
-    <Sidebar />
-    <Main>
-      <Header pageTitle="Breeds" />
-      <SearchBox />
-    </Main>
-  </AppWrapper>
-);
+function App() {
+	return <Routes />
+}
 
-export default App;
+export default App
