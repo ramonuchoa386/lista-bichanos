@@ -1,8 +1,8 @@
-import BreedName from "./breedName";
-import Button from "./button";
-import Icon from "./icon";
-import Img from "./img";
-import LinkBtn from "./linkBtn";
-import Text from "./text";
+import Heading from "./heading"
+import Button from "./button"
+import Icon from "./icon"
+import Img from "./img"
+import Link from "./link"
+import Text from "./text"
 
-export { BreedName, Button, Icon, Img, LinkBtn, Text };
+export { Heading, Button, Icon, Img, Link, Text }
